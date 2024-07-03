@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cek Jumlah pahala kamu</title>
+    <meta name="description" content="By Heru Marselo" />
+    <link rel="icon" href="logi.jpg" type="image/jpg" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .isi {
+        margin-top: 50%;
+        width: 85%;
+        box-shadow:  1px 1px 20px #e0eef2;
+        padding: 10px;
+        border-radius: 20px;
+      }
+      .hasil {
+        margin-top: 50%;
+        width: 85%;
+        box-shadow:  1px 1px 20px #e0eef2;
+        padding: 10px;
+        border-radius: 20px;
+        display: none;
+      }
+      .judul {
+        padding: 20px;
+      }
+      #nama {
+        padding: 5px;
+        border: none;
+        border-bottom: 1px solid black;
+        margin-top: 20px;
+        outline: none;
+        transition: .3s ease;
+        width: 180px;
+      }
+      #nama:focus {
+        border: 1px solid #0085bb;
+        border-radius: 10px;
+        width: 210px;
+        margin-top: 25px;
+      }
+      #submit {
+        margin-top: 20px;
+        padding: 5px;
+        width: 150px;
+        border-radius: 15px;
+        border: none;
+        background: linear-gradient(to right, #6feeff,#f56fff);
+        font-weight: bold;
+        color: white;
+        text-shadow: 1px 1px 3px black;
+        transition: .3s ease;
+      }
+      #lod {
+        display: none;
+        margin-top: 70%;
+      }
+      #submit:hover {
+        transform: scale(0.9);
+      }
+      .nama {
+        background: linear-gradient(to right, #4cee, #fc6aff);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      #phl {
+        padding: 5px;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <div class="isi" id="isi">
+       <h2 class="judul">
+         Cek pahala
+       </h2>
+       <label for="nama">Masukkan Nama:</label>
+       <br>
+       <input type="text" name="nama" id="nama" placeholder="Nama..."/>
+         <br/>
+       <button id="submit" type="submit" onclick="s()">
+         Submit
+       </button>
+      </div>
+      <div id="lod">
+        <img src="lod.gif" width="40%" />
+      </div>
+      <div class="hasil" id="hasil">
+       <h3 class="nama" id="nm">
+         
+       </h3>
+       <h3>Jumlah pahala mu adalah:</h3>
+       <h2 id="phl"></h2>
+         <br/>
+       <button id="submit" type="submit" onclick="c()">
+         Cek ulang
+       </button>
+      </div>
+    </center>
+    <script>
+      function s() {
+        var im = document.getElementById("nama").value;
+        document.getElementById("nm").innerHTML = im;
+        var p1 = document.getElementById("isi");
+        var lod = document.getElementById("lod");
+        var p2 = document.getElementById("hasil");
+        var angka1 = Math.floor(Math.random() * 1000000) + 200000;
+        var angka = angka1.toLocaleString("id-ID");
+        var heru = ["Heru", "heru", "Heru marselo", "Heru Marselo", "heru marselo", "Heru ", "heru ", "Heru marselo ", "Heru Marselo ", "heru marselo "];
+        document.getElementById("phl").innerHTML = angka;
+        if (heru.includes(im)) {
+          document.getElementById("phl").innerHTML = "534.684.460";
+        }
+        p1.style.display = "none";
+        lod.style.display = "block";
+        setTimeout ( function() {
+          lod.style.display = "none";
+          p2.style.display = "block"
+        }, 2000);
+      }
+      function c() {
+         var p2 = document.getElementById("hasil");
+         document.getElementById("nama").value = "";
+         var p1 = document.getElementById("isi");
+         p2.style.display = "none";
+         p1.style.display = "block";
+      }
+    </script>
+  </body>
+</html>
